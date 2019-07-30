@@ -42,6 +42,20 @@ class DrawTextView @JvmOverloads constructor(
             invalidate()
         }
 
+    var fontScale: Float = 1.0f
+        set(value) {
+            field = value
+            projectResources.paintText.textScaleX = field
+            invalidate()
+        }
+
+    var fontSize: Int = 30
+        set(value) {
+            field = value
+            projectResources.paintText.textSize = resources.dpToPx(field)
+            invalidate()
+        }
+
     var customCenter: Boolean = false
         set(value) {
             field = value

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.RadioButton
+import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +37,24 @@ class MainActivity : AppCompatActivity() {
         switch_fix_height_coordinate.setOnCheckedChangeListener { _, isChecked ->
             draw_text_view.fixHeightCoordinate = isChecked
         }
+
+        seek_scale.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                draw_text_view.fontScale = progress/10f
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+        seek_size.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                draw_text_view.fontSize = progress
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
 
         (radio_center.getChildAt(0) as RadioButton).isChecked = true
         radio_center.setOnCheckedChangeListener { _, checkedId ->
