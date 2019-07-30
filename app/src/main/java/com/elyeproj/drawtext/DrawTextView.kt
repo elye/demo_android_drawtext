@@ -42,6 +42,13 @@ class DrawTextView @JvmOverloads constructor(
             invalidate()
         }
 
+    var fontAntialias: Boolean = true
+        set(value) {
+            field = value
+            projectResources.paintText.isAntiAlias = field
+            invalidate()
+        }
+
     var fontScale: Float = 1.0f
         set(value) {
             field = value

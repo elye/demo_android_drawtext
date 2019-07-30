@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
             draw_text_view.fixHeightCoordinate = isChecked
         }
 
+        switch_antialias.setOnCheckedChangeListener { _, isChecked ->
+            draw_text_view.fontAntialias = isChecked
+        }
+
         seek_scale.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 draw_text_view.fontScale = progress/10f

@@ -37,8 +37,13 @@
                     android:id="@+id/switch_fix_height_coordinate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fix height coordinate"/>
-
+                    android:text="Fixed Base Y"/>
+            <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_antialias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Antialias"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -48,7 +53,7 @@
             <LinearLayout android:layout_width="0dp"
                           android:layout_weight="1"
                           android:layout_height="wrap_content"
-            android:orientation="vertical">
+                          android:orientation="vertical">
 
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
