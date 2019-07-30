@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
-import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import java.lang.Math.abs
@@ -134,24 +133,27 @@ class DrawTextView @JvmOverloads constructor(
         canvas.drawText(drawText, drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintText)
         canvas.drawPoint(drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintRed)
         if (drawBox) {
+            val textMeasure = projectResources.paintText.measureText(drawText)
             when (customAlign) {
                 Paint.Align.LEFT -> {
                     originTextBound.offset(drawTextCoordinate.x.toInt(), drawTextCoordinate.y.toInt())
                 }
                 Paint.Align.CENTER -> {
                     originTextBound.offset(
-                        (drawTextCoordinate.x - originTextBound.exactCenterX()).toInt(),
+                        (drawTextCoordinate.x - textMeasure/2).toInt(),
                         drawTextCoordinate.y.toInt()
                     )
                 }
                 Paint.Align.RIGHT -> {
                     originTextBound.offset(
-                        (drawTextCoordinate.x - originTextBound.right).toInt() - originTextBound.left,
+                        (drawTextCoordinate.x - textMeasure).toInt(),
                         drawTextCoordinate.y.toInt()
                     )
                 }
             }
             canvas.drawRect(originTextBound, projectResources.paintBox)
+
+            projectResources.paintText.fontSpacing
         }
 
         //////////////////////////////////////////////////////////////////////////////
