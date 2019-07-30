@@ -100,39 +100,11 @@ class DrawTextView @JvmOverloads constructor(
     }
 
     private var originTextBound = calculateOriginTextBound()
-    private var translatedTextBound = calculateDrawTextBound()
 
     private fun calculateOriginTextBound(): Rect {
         val textBound = Rect()
         projectResources.paintText.getTextBounds(drawText, 0, drawText.length, textBound)
         return textBound
-    }
-
-    private fun calculateDrawTextBound(): RectF {
-        val drawTextBound = RectF()
-        if (customCenter) {
-            drawTextBound.top = height / 2f - originTextBound.calculateCenterY()
-            drawTextBound.bottom = height / 2f + originTextBound.calculateCenterY()
-        } else {
-            drawTextBound.top = height / 2f - originTextBound.calculateCenterY() + originTextBound.bottom
-            drawTextBound.bottom = height / 2f + originTextBound.calculateCenterY() + originTextBound.bottom
-        }
-
-        when(customAlign) {
-            Paint.Align.LEFT -> {
-                drawTextBound.left = width / 2f + originTextBound.right
-                drawTextBound.right = width / 2f + originTextBound.left
-            }
-            Paint.Align.CENTER -> {
-                drawTextBound.left = width / 2f - originTextBound.calculateCenterX()
-                drawTextBound.right = width / 2f + originTextBound.calculateCenterX()
-            }
-            Paint.Align.RIGHT -> {
-                drawTextBound.left = width / 2f - originTextBound.right
-                drawTextBound.right = width / 2f + originTextBound.left
-            }
-        }
-        return drawTextBound
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -141,7 +113,6 @@ class DrawTextView @JvmOverloads constructor(
 
         drawText = if (customText.isBlank()) TEXT else customText
         originTextBound = calculateOriginTextBound()
-        translatedTextBound = calculateDrawTextBound()
 
         drawTextCoordinate.x = width / 2f
 
@@ -163,9 +134,22 @@ class DrawTextView @JvmOverloads constructor(
         canvas.drawText(drawText, drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintText)
         canvas.drawPoint(drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintRed)
         if (drawBox) {
-            canvas.drawRect(translatedTextBound, projectResources.paintBox)
+            when (customAlign) {
+                Paint.Align.LEFT -> originTextBound.offset(drawTextCoordinate.x.toInt(), drawTextCoordinate.y.toInt())
+                Paint.Align.CENTER -> {
+                    originTextBound.offset(
+                        (- originTextBound.left + drawTextCoordinate.x - originTextBound.width()/2).toInt(),
+                        drawTextCoordinate.y.toInt()
+                    )
+                }
+                Paint.Align.RIGHT -> originTextBound.offset(
+                    + drawTextCoordinate.x.toInt()
+                            - originTextBound.width() - originTextBound.left * 2,
+                    drawTextCoordinate.y.toInt()
+                )
+            }
+            canvas.drawRect(originTextBound, projectResources.paintBox)
         }
-
 
         //////////////////////////////////////////////////////////////////////////////
         // Fix the draw line per the full height of the text using the Sample Text  //
