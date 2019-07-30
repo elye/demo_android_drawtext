@@ -135,18 +135,21 @@ class DrawTextView @JvmOverloads constructor(
         canvas.drawPoint(drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintRed)
         if (drawBox) {
             when (customAlign) {
-                Paint.Align.LEFT -> originTextBound.offset(drawTextCoordinate.x.toInt(), drawTextCoordinate.y.toInt())
+                Paint.Align.LEFT -> {
+                    originTextBound.offset(drawTextCoordinate.x.toInt(), drawTextCoordinate.y.toInt())
+                }
                 Paint.Align.CENTER -> {
                     originTextBound.offset(
-                        (- originTextBound.left + drawTextCoordinate.x - originTextBound.width()/2).toInt(),
+                        (drawTextCoordinate.x - originTextBound.exactCenterX()).toInt(),
                         drawTextCoordinate.y.toInt()
                     )
                 }
-                Paint.Align.RIGHT -> originTextBound.offset(
-                    + drawTextCoordinate.x.toInt()
-                            - originTextBound.width() - originTextBound.left * 2,
-                    drawTextCoordinate.y.toInt()
-                )
+                Paint.Align.RIGHT -> {
+                    originTextBound.offset(
+                        drawTextCoordinate.x.toInt() - originTextBound.width() - originTextBound.left * 2,
+                        drawTextCoordinate.y.toInt()
+                    )
+                }
             }
             canvas.drawRect(originTextBound, projectResources.paintBox)
         }
