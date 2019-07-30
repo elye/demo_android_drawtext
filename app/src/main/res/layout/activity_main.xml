@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        tools:context=".MainActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
+
+        <com.elyeproj.drawtext.DrawTextView
+                android:id="@+id/draw_text_view"
+                style="@style/DefaultStyle"/>
+
+        <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/text_input"
+                android:textAlignment="center"
+                android:hint="Enter text to draw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:gravity="center">
+
+            <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bounding Box"/>
+            <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switch_fix_height_coordinate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fix height coordinate"/>
+
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Text Vertical Center"
+                  android:textAlignment="center"/>
+
+        <RadioGroup
+                android:id="@+id/radio_center"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exact"/>
+        </RadioGroup>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical">
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="center"
+                          android:text="Text Alignment"/>
+
+                <RadioGroup
+                        android:id="@+id/radio_align"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Center"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Left"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Right"/>
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical">
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="center"
+                          android:text="Tex Style"/>
+
+                <RadioGroup
+                        android:id="@+id/radio_style"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fill"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fill n Stroke"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stroke"/>
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
