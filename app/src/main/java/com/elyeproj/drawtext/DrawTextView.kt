@@ -146,7 +146,7 @@ class DrawTextView @JvmOverloads constructor(
                 }
                 Paint.Align.RIGHT -> {
                     originTextBound.offset(
-                        drawTextCoordinate.x.toInt() - originTextBound.width() - originTextBound.left * 2,
+                        (drawTextCoordinate.x - originTextBound.right).toInt() - originTextBound.left,
                         drawTextCoordinate.y.toInt()
                     )
                 }
