@@ -60,6 +60,15 @@ class MainActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
+        seek_skew.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                draw_text_view.fontSkew = -progress/10f
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
         (radio_center.getChildAt(0) as RadioButton).isChecked = true
         radio_center.setOnCheckedChangeListener { _, checkedId ->
             draw_text_view.customCenter = (checkedId == 2)

@@ -1,7 +1,10 @@
 package com.elyeproj.drawtext
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import java.lang.Math.abs
@@ -60,6 +63,13 @@ class DrawTextView @JvmOverloads constructor(
         set(value) {
             field = value
             projectResources.paintText.textSize = resources.dpToPx(field)
+            invalidate()
+        }
+
+    var fontSkew: Float = 0f
+        set(value) {
+            field = value
+            projectResources.paintText.textSkewX = field
             invalidate()
         }
 
