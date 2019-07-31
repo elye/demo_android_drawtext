@@ -132,28 +132,40 @@ class DrawTextView @JvmOverloads constructor(
 
         canvas.drawText(drawText, drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintText)
         canvas.drawPoint(drawTextCoordinate.x, drawTextCoordinate.y, projectResources.paintRed)
+
         if (drawBox) {
+            var lineXbegin = drawTextCoordinate.x
+            var lineXend = drawTextCoordinate.x
             val textMeasure = projectResources.paintText.measureText(drawText)
             when (customAlign) {
                 Paint.Align.LEFT -> {
                     originTextBound.offset(drawTextCoordinate.x.toInt(), drawTextCoordinate.y.toInt())
+
+                    lineXend += textMeasure
                 }
                 Paint.Align.CENTER -> {
                     originTextBound.offset(
                         (drawTextCoordinate.x - textMeasure/2).toInt(),
                         drawTextCoordinate.y.toInt()
                     )
+
+                    lineXbegin -= textMeasure/2
+                    lineXend += textMeasure/2
                 }
                 Paint.Align.RIGHT -> {
                     originTextBound.offset(
                         (drawTextCoordinate.x - textMeasure).toInt(),
                         drawTextCoordinate.y.toInt()
                     )
+
+                    lineXbegin -= textMeasure
                 }
             }
             canvas.drawRect(originTextBound, projectResources.paintBox)
 
-            projectResources.paintText.fontSpacing
+            // Draw the measure line as well
+            canvas.drawLine(lineXbegin, height - 20f,
+                lineXend, height - 20f, projectResources.paintRedLine)
         }
 
         //////////////////////////////////////////////////////////////////////////////

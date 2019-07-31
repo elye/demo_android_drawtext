@@ -77,7 +77,7 @@ class ProjectResources(private val resources: Resources) {
         getBasePaint().apply {
             color = Color.RED
             alpha = 128
-            strokeWidth = resources.dpToPx(1)
+            strokeWidth = resources.dpToPx(5)
             textSize = resources.dpToPx(30)
         }
     }
