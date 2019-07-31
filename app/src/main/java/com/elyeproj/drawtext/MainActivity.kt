@@ -1,6 +1,7 @@
 package com.elyeproj.drawtext
 
 import android.graphics.Paint
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
@@ -89,6 +90,17 @@ class MainActivity : AppCompatActivity() {
                 6 -> draw_text_view.customStyle = Paint.Style.FILL
                 7 -> draw_text_view.customStyle = Paint.Style.FILL_AND_STROKE
                 8 -> draw_text_view.customStyle = Paint.Style.STROKE
+            }
+        }
+
+        (radio_typeface.getChildAt(0) as RadioButton).isChecked = true
+        radio_typeface.setOnCheckedChangeListener { _, checkedId ->
+            when(checkedId) {
+                9 -> draw_text_view.typeFace = Typeface.DEFAULT
+                10 -> draw_text_view.typeFace = Typeface.DEFAULT_BOLD
+                11 -> draw_text_view.typeFace = Typeface.SANS_SERIF
+                12 -> draw_text_view.typeFace = Typeface.SERIF
+                13 -> draw_text_view.typeFace = Typeface.MONOSPACE
             }
         }
 

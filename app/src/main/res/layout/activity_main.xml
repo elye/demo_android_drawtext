@@ -164,7 +164,7 @@
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:textAlignment="center"
-                          android:text="Tex Style"/>
+                          android:text="Text Style"/>
 
                 <RadioGroup
                         android:id="@+id/radio_style"
@@ -186,5 +186,36 @@
                 </RadioGroup>
             </LinearLayout>
         </LinearLayout>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textAlignment="center"
+                  android:text="Typeface"/>
+        <RadioGroup
+                android:id="@+id/radio_typeface"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default Bold"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="San serif"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Serif"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monospace"/>
+        </RadioGroup>
     </LinearLayout>
 </ScrollView>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import java.lang.Math.abs
@@ -89,6 +90,14 @@ class DrawTextView @JvmOverloads constructor(
         set(value) {
             field = value
             projectResources.paintText.style = field
+            invalidate()
+        }
+
+
+    var typeFace: Typeface = Typeface.DEFAULT
+        set(value) {
+            field = value
+            projectResources.paintText.typeface = field
             invalidate()
         }
 
