@@ -52,6 +52,34 @@ class DrawTextView @JvmOverloads constructor(
             invalidate()
         }
 
+    var fontFakeBold: Boolean = false
+        set(value) {
+            field = value
+            projectResources.paintText.isFakeBoldText = field
+            invalidate()
+        }
+
+    var fontUnderline: Boolean = false
+        set(value) {
+            field = value
+            projectResources.paintText.isUnderlineText = field
+            invalidate()
+        }
+
+    var fontStrikeThrough: Boolean = false
+        set(value) {
+            field = value
+            projectResources.paintText.isStrikeThruText = field
+            invalidate()
+        }
+
+    var fontFeatureSetting: String = ""
+        set(value) {
+            field = value
+            projectResources.paintText.fontFeatureSettings = field
+            invalidate()
+        }
+
     var fontScale: Float = 1.0f
         set(value) {
             field = value
@@ -70,6 +98,13 @@ class DrawTextView @JvmOverloads constructor(
         set(value) {
             field = value
             projectResources.paintText.textSkewX = field
+            invalidate()
+        }
+
+    var letterSpacing: Float = 0f
+        set(value) {
+            field = value
+            projectResources.paintText.letterSpacing = field
             invalidate()
         }
 

@@ -43,6 +43,22 @@ class MainActivity : AppCompatActivity() {
             draw_text_view.fontAntialias = isChecked
         }
 
+        switch_fake_bold.setOnCheckedChangeListener { _, isChecked ->
+            draw_text_view.fontFakeBold = isChecked
+        }
+
+        switch_underline.setOnCheckedChangeListener { _, isChecked ->
+            draw_text_view.fontUnderline = isChecked
+        }
+
+        switch_strike_through.setOnCheckedChangeListener { _, isChecked ->
+            draw_text_view.fontStrikeThrough = isChecked
+        }
+
+        switch_font_feature.setOnCheckedChangeListener { _, isChecked ->
+            draw_text_view.fontFeatureSetting = if (isChecked) "smcp" else ""
+        }
+
         seek_scale.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 draw_text_view.fontScale = progress/10f
@@ -64,6 +80,15 @@ class MainActivity : AppCompatActivity() {
         seek_skew.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 draw_text_view.fontSkew = -progress/10f
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+        seek_space.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                draw_text_view.letterSpacing = progress/100f
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
