@@ -262,6 +262,13 @@
                         android:checked="true"
                         android:text="Antialias"/>
                 <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switch_hinting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:checked="true"
+                        android:text="Hinting"/>
+                <android.support.v7.widget.SwitchCompat
                         android:id="@+id/switch_fake_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -43,6 +43,10 @@ class MainActivity : AppCompatActivity() {
             draw_text_view.fontAntialias = isChecked
         }
 
+        switch_hinting.setOnCheckedChangeListener { _, isChecked ->
+            draw_text_view.fontHinting = if (isChecked) Paint.HINTING_ON else Paint.HINTING_OFF
+        }
+
         switch_fake_bold.setOnCheckedChangeListener { _, isChecked ->
             draw_text_view.fontFakeBold = isChecked
         }

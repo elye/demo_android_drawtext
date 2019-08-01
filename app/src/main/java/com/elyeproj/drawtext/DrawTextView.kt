@@ -52,6 +52,13 @@ class DrawTextView @JvmOverloads constructor(
             invalidate()
         }
 
+    var fontHinting: Int = Paint.HINTING_ON
+        set(value) {
+            field = value
+            projectResources.paintText.hinting = field
+            invalidate()
+        }
+
     var fontFakeBold: Boolean = false
         set(value) {
             field = value
