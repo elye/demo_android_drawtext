@@ -38,12 +38,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fixed Base Y"/>
-            <android.support.v7.widget.SwitchCompat
-                    android:id="@+id/switch_antialias"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="Antialias"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -97,6 +91,24 @@
                           android:text="Skew"/>
 
                 <SeekBar android:id="@+id/seek_skew"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:min="-10"
+                         android:max="10"
+                         android:progress="0"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_weight="1"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="center"
+                          android:text="Spacing"/>
+
+                <SeekBar android:id="@+id/seek_space"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:min="-10"
@@ -188,39 +200,93 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:textAlignment="center"
-                  android:text="Typeface"/>
-        <RadioGroup
-                android:id="@+id/radio_typeface"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Default"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Default Bold"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="San serif"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Serif"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Monospace"/>
-            <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Custom Waltz Disney"/>
-        </RadioGroup>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_weight="1"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+            android:layout_marginStart="16dp">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textStart"
+                          android:text="Typeface"/>
+                <RadioGroup
+                        android:id="@+id/radio_typeface"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Default"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Default Bold"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="San serif"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Serif"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monospace"/>
+                    <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Custom Waltz Disney"/>
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_weight="1"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_marginStart="8dp"
+                          android:layout_marginEnd="16dp">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textStart"
+                          android:text="Font Styles"/>
+                <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switch_antialias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:checked="true"
+                        android:text="Antialias"/>
+                <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switch_fake_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Fake Bold"/>
+                <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switch_underline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Underline"/>
+                <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switch_strike_through"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Strike Through"/>
+                <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switch_font_feature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Font Feature SMCP"/>
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
