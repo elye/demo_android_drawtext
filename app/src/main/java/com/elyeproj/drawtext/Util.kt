@@ -90,7 +90,6 @@ class ProjectResources(private val resources: Resources) {
             isAntiAlias = true
             textAlign = Paint.Align.CENTER
             textSize = resources.dpToPx(30)
-            setTypeface(Typeface.DEFAULT)
         }
     }
 }
