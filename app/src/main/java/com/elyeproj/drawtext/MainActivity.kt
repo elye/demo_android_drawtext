@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                 11 -> draw_text_view.typeFace = Typeface.SANS_SERIF
                 12 -> draw_text_view.typeFace = Typeface.SERIF
                 13 -> draw_text_view.typeFace = Typeface.MONOSPACE
+                14 -> draw_text_view.typeFace = Typeface.createFromAsset(assets, "waltograph42.ttf")
             }
         }
 

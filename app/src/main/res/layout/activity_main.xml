@@ -216,6 +216,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Monospace"/>
+            <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom Waltz Disney"/>
         </RadioGroup>
     </LinearLayout>
 </ScrollView>
