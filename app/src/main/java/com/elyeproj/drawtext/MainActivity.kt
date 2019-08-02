@@ -101,38 +101,41 @@ class MainActivity : AppCompatActivity() {
 
         (radio_center.getChildAt(0) as RadioButton).isChecked = true
         radio_center.setOnCheckedChangeListener { _, checkedId ->
-            draw_text_view.customCenter = (checkedId == 2)
+            when (findViewById<RadioButton>(checkedId).id) {
+                R.id.radio_calculate -> draw_text_view.customCenter = false
+                R.id.radio_exact -> draw_text_view.customCenter = true
+            }
         }
 
         (radio_align.getChildAt(0) as RadioButton).isChecked = true
         radio_align.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId) {
-                3 -> draw_text_view.customAlign = Paint.Align.CENTER
-                4 -> draw_text_view.customAlign = Paint.Align.LEFT
-                5 -> draw_text_view.customAlign = Paint.Align.RIGHT
+            when (findViewById<RadioButton>(checkedId).id) {
+                R.id.radio_align_center -> draw_text_view.customAlign = Paint.Align.CENTER
+                R.id.radio_align_left -> draw_text_view.customAlign = Paint.Align.LEFT
+                R.id.radio_align_right -> draw_text_view.customAlign = Paint.Align.RIGHT
             }
         }
 
         (radio_style.getChildAt(0) as RadioButton).isChecked = true
         radio_style.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId) {
-                6 -> draw_text_view.customStyle = Paint.Style.FILL
-                7 -> draw_text_view.customStyle = Paint.Style.FILL_AND_STROKE
-                8 -> draw_text_view.customStyle = Paint.Style.STROKE
+            when (findViewById<RadioButton>(checkedId).id) {
+                R.id.radio_style_fill -> draw_text_view.customStyle = Paint.Style.FILL
+                R.id.radio_style_fill_stroke -> draw_text_view.customStyle = Paint.Style.FILL_AND_STROKE
+                R.id.radio_style_stroke -> draw_text_view.customStyle = Paint.Style.STROKE
             }
         }
 
         (radio_typeface.getChildAt(0) as RadioButton).isChecked = true
         radio_typeface.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId) {
-                9 -> draw_text_view.typeFace = Typeface.DEFAULT
-                10 -> draw_text_view.typeFace = Typeface.DEFAULT_BOLD
-                11 -> draw_text_view.typeFace = Typeface.SANS_SERIF
-                12 -> draw_text_view.typeFace = Typeface.SERIF
-                13 -> draw_text_view.typeFace = Typeface.MONOSPACE
-                14 -> draw_text_view.typeFace = Typeface.createFromAsset(assets, "waltograph42.ttf")
+            when (findViewById<RadioButton>(checkedId).id) {
+                R.id.radio_typeface_default -> draw_text_view.typeFace = Typeface.DEFAULT
+                R.id.radio_typeface_default_bold -> draw_text_view.typeFace = Typeface.DEFAULT_BOLD
+                R.id.radio_typeface_san_serif -> draw_text_view.typeFace = Typeface.SANS_SERIF
+                R.id.radio_typeface_serif -> draw_text_view.typeFace = Typeface.SERIF
+                R.id.radio_typeface_monospace -> draw_text_view.typeFace = Typeface.MONOSPACE
+                R.id.radio_typeface_custom_waltz_disney -> draw_text_view.typeFace =
+                    Typeface.createFromAsset(assets, "waltograph42.ttf")
             }
         }
-
     }
 }

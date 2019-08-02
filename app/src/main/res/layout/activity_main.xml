@@ -130,10 +130,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <RadioButton
+                    android:id="@+id/radio_calculate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Calculate"/>
             <RadioButton
+                    android:id="@+id/radio_exact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Exact"/>
@@ -157,14 +159,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     <RadioButton
+                            android:id="@+id/radio_align_center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Center"/>
                     <RadioButton
+                            android:id="@+id/radio_align_left"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Left"/>
                     <RadioButton
+                            android:id="@+id/radio_align_right"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Right"/>
@@ -185,14 +190,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     <RadioButton
+                            android:id="@+id/radio_style_fill"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Fill"/>
                     <RadioButton
+                            android:id="@+id/radio_style_fill_stroke"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Fill n Stroke"/>
                     <RadioButton
+                            android:id="@+id/radio_style_stroke"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Stroke"/>
@@ -219,26 +227,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                     <RadioButton
+                            android:id="@+id/radio_typeface_default"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Default"/>
                     <RadioButton
+                            android:id="@+id/radio_typeface_default_bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Default Bold"/>
                     <RadioButton
+                            android:id="@+id/radio_typeface_san_serif"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="San serif"/>
                     <RadioButton
+                            android:id="@+id/radio_typeface_serif"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Serif"/>
                     <RadioButton
+                            android:id="@+id/radio_typeface_monospace"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Monospace"/>
                     <RadioButton
+                            android:id="@+id/radio_typeface_custom_waltz_disney"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Custom Waltz Disney"/>
